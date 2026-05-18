@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dental & Implants — Meta Ads Audit · Apr → May 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #0a0e1a;
+  --bg-card: #131826;
+  --bg-elev: #1a2030;
+  --border: #232b3d;
+  --border-soft: #1c2333;
+  --text: #ffffff;
+  --text-soft: #cbd2e0;
+  --text-muted: #7c8499;
+  --text-dim: #5a6175;
+  --mint: #2dd4bf;
+  --mint-soft: rgba(45,212,191,0.15);
+  --coral: #fb7185;
+  --coral-soft: rgba(251,113,133,0.15);
+  --purple: #a78bfa;
+  --purple-soft: rgba(167,139,250,0.15);
+  --amber: #fbbf24;
+  --amber-soft: rgba(251,191,36,0.15);
+  --blue: #60a5fa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 15px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  min-height: 100vh;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* ============ LAYOUT ============ */
+.app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+/* ============ SIDEBAR ============ */
+.sidebar {
+  background: var(--bg);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem 0.75rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1.75rem;
+}
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--mint-soft);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mint);
+  flex-shrink: 0;
+}
+.brand-text { line-height: 1.2; }
+.brand-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.brand-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+  transition: all 0.15s;
+}
+.nav-link svg { width: 16px; height: 16px; stroke-width: 1.8; flex-shrink: 0; }
+.nav-link:hover { color: var(--text-soft); background: var(--bg-elev); }
+.nav-link.active { color: var(--mint); background: transparent; }
+.nav-link.active svg { color: var(--mint); }
+
+/* ============ MAIN ============ */
+.main { padding: 1.5rem 2rem; max-width: 100%; overflow-x: hidden; }
+
+/* ============ TOPBAR ============ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.topbar-left { display: flex; align-items: center; gap: 0.75rem; }
+.range-pill {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  background: var(--mint-soft);
+  color: var(--mint);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.range-label { font-size: 0.83rem; color: var(--text-muted); }
+.topbar-right { font-size: 0.83rem; color: var(--text-muted); }
+
+/* ============ NOTE BANNER ============ */
+.note {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber);
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+.note strong { color: var(--amber); font-weight: 600; }
+
+/* ============ SECTION ============ */
+section { margin-bottom: 2.5rem; scroll-margin-top: 1.5rem; }
+.section-head { margin-bottom: 1.25rem; }
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+.section-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ============ STAT CARDS ============ */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.stat-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.stat-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  position: relative;
+  transition: all 0.2s;
+}
+.stat-card:hover { border-color: var(--text-dim); }
+.stat-card.highlighted { border-color: var(--coral); box-shadow: 0 0 0 1px var(--coral); }
+.stat-card.highlight-mint { border-color: var(--mint); box-shadow: 0 0 0 1px var(--mint); }
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.stat-icon svg { width: 18px; height: 18px; stroke-width: 2; }
+.stat-icon.coral { background: var(--coral-soft); color: var(--coral); }
+.stat-icon.mint { background: var(--mint-soft); color: var(--mint); }
+.stat-icon.purple { background: var(--purple-soft); color: var(--purple); }
+.stat-icon.amber { background: var(--amber-soft); color: var(--amber); }
+.stat-icon.blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+.stat-value.coral { color: var(--coral); }
+.stat-value.mint { color: var(--mint); }
+.stat-value.purple { color: var(--purple); }
+.stat-value.amber { color: var(--amber); }
+.stat-value.blue { color: var(--blue); }
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.stat-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.stat-delta {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.stat-delta.up { color: var(--mint); }
+.stat-delta.down { color: var(--coral); }
+
+/* ============ KPI ROW (smaller) ============ */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kpi-mini {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.kpi-mini-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+.kpi-mini-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+.kpi-mini-value.coral { color: var(--coral); }
+.kpi-mini-value.mint { color: var(--mint); }
+.kpi-mini-delta { font-size: 0.7rem; color: var(--text-muted); }
+.kpi-mini-delta.up { color: var(--mint); }
+.kpi-mini-delta.down { color: var(--coral); }
+
+/* ============ TOTAL COUNT BAR ============ */
+.total-bar {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.total-bar strong { color: var(--text); font-size: 1rem; font-weight: 700; }
+
+/* ============ CHART CARDS ============ */
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+.chart-card.full { grid-column: 1 / -1; }
+.chart-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.chart-container {
+  height: 280px;
+  position: relative;
+}
+.chart-container.tall { height: 360px; }
+.chart-with-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+.legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+.legend-left { display: flex; align-items: center; gap: 0.6rem; color: var(--text-soft); }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.legend-value { color: var(--text); font-weight: 600; }
+.legend-pct { color: var(--text-muted); font-weight: 400; margin-left: 0.4rem; font-size: 0.78rem; }
+
+/* ============ FILTER CHIPS ============ */
+.chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+.chip {
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.15s;
+}
+.chip:hover { border-color: var(--text-dim); color: var(--text); }
+.chip.active.coral { background: var(--coral-soft); color: var(--coral); border-color: var(--coral); }
+.chip.active.mint { background: var(--mint-soft); color: var(--mint); border-color: var(--mint); }
+.chip.active.purple { background: var(--purple-soft); color: var(--purple); border-color: var(--purple); }
+.chip.active.amber { background: var(--amber-soft); color: var(--amber); border-color: var(--amber); }
+
+/* ============ HIERARCHY TABLE ============ */
+.hierarchy {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.camp-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 90px 80px 90px 70px 90px 80px 90px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.camp-row:hover { background: var(--bg-elev); }
+.camp-row.header-row {
+  background: var(--bg-elev);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  cursor: default;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.camp-row.header-row:hover { background: var(--bg-elev); }
+.camp-row .chev {
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+}
+.camp-row.open .chev { transform: rotate(90deg); color: var(--mint); }
+.camp-row .name {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.88rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.camp-row .num {
+  text-align: right;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.camp-row .num.cpql.mint { color: var(--mint); font-weight: 600; }
+.camp-row .num.cpql.amber { color: var(--amber); }
+.camp-row .num.cpql.coral { color: var(--coral); font-weight: 600; }
+
+.tier-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+}
+.tier-pill.mint { background: var(--mint-soft); color: var(--mint); }
+.tier-pill.amber { background: var(--amber-soft); color: var(--amber); }
+.tier-pill.coral { background: var(--coral-soft); color: var(--coral); }
+.tier-pill.gray { background: var(--bg-elev); color: var(--text-muted); }
+
+.adset-list {
+  background: rgba(0,0,0,0.2);
+  display: none;
+  border-bottom: 1px solid var(--border-soft);
+}
+.camp-row.open + .adset-list { display: block; }
+.adset-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 90px 80px 90px 70px 90px 80px 90px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 0.82rem;
+}
+.adset-row:last-child { border-bottom: none; }
+.adset-row .name {
+  color: var(--text-muted);
+  padding-left: 1.5rem;
+  position: relative;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.adset-row .name::before {
+  content: "└";
+  position: absolute;
+  left: 0;
+  color: var(--text-dim);
+}
+.adset-row .num {
+  text-align: right;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+.adset-row .num.cpql.mint { color: var(--mint); }
+.adset-row .num.cpql.amber { color: var(--amber); }
+.adset-row .num.cpql.coral { color: var(--coral); }
+
+/* ============ SHIFT CARDS ============ */
+.shift-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.shift-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  position: relative;
+}
+.shift-card .badge {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.badge.coral { background: var(--coral-soft); color: var(--coral); }
+.badge.mint { background: var(--mint-soft); color: var(--mint); }
+.badge.amber { background: var(--amber-soft); color: var(--amber); }
+.badge.purple { background: var(--purple-soft); color: var(--purple); }
+.shift-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  padding-right: 5rem;
+  line-height: 1.3;
+}
+.shift-card p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+.shift-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-soft);
+}
+.shift-side { text-align: center; }
+.shift-side .label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.shift-side .value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.shift-side.now .value { color: var(--coral); }
+.shift-arrow {
+  color: var(--text-dim);
+  font-size: 1rem;
+}
+
+/* ============ AD GALLERY ============ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.creative {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem;
+  position: relative;
+  transition: all 0.2s;
+}
+.creative:hover { border-color: var(--text-dim); }
+.creative-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.62rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.creative-status.mint { background: var(--mint-soft); color: var(--mint); }
+.creative-status.amber { background: var(--amber-soft); color: var(--amber); }
+.creative-status.coral { background: var(--coral-soft); color: var(--coral); }
+.creative-status.gray { background: var(--bg-elev); color: var(--text-muted); }
+.creative-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.85rem;
+  padding-right: 4.5rem;
+  line-height: 1.35;
+  min-height: 2.5rem;
+}
+.creative-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-soft);
+}
+.cm-label {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.cm-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.cm-value.mint { color: var(--mint); }
+.cm-value.coral { color: var(--coral); }
+.cm-value.amber { color: var(--amber); }
+.creative-engagement {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-soft);
+  flex-wrap: wrap;
+}
+.creative-engagement strong { color: var(--text-soft); font-weight: 600; }
+
+/* ============ FUNNEL ============ */
+.funnel-grid { display: flex; flex-direction: column; gap: 4px; }
+.funnel-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 80px 90px;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.funnel-row:hover { background: var(--bg-elev); }
+.funnel-row.leak { border-left-color: var(--coral); }
+.funnel-row.qualified { border-left-color: var(--mint); }
+.funnel-row.revenue { border-left-color: var(--amber); }
+.funnel-stage-name { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+.funnel-bar-wrap {
+  height: 20px;
+  background: var(--bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.funnel-bar {
+  height: 100%;
+  background: var(--text-dim);
+  transition: width 0.8s;
+  border-radius: 3px;
+}
+.funnel-row.leak .funnel-bar { background: var(--coral); }
+.funnel-row.qualified .funnel-bar { background: var(--mint); }
+.funnel-row.revenue .funnel-bar { background: var(--amber); }
+.funnel-count {
+  text-align: right;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+.funnel-pct {
+  text-align: right;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============ ROADMAP ============ */
+.roadmap-group { margin-bottom: 1.5rem; }
+.roadmap-group-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 0.75rem;
+}
+.roadmap-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.roadmap-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1.6fr 100px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+.roadmap-row:last-child { border-bottom: none; }
+.roadmap-row:hover { background: var(--bg-elev); }
+.priority {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+.priority.p0 { background: var(--coral-soft); color: var(--coral); }
+.priority.p1 { background: var(--amber-soft); color: var(--amber); }
+.priority.p2 { background: var(--mint-soft); color: var(--mint); }
+.roadmap-row .init {
+  font-size: 0.92rem;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.35;
+}
+.roadmap-row .why {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.roadmap-row .channel {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ============ FOOTER ============ */
+footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+footer h5 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 0.5rem;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; padding: 1rem; display: flex; gap: 0.5rem; overflow-x: auto; }
+  .brand { margin-bottom: 0; padding-right: 1rem; border-right: 1px solid var(--border); flex-shrink: 0; }
+  .nav-link { white-space: nowrap; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid.cols-6 { grid-template-columns: repeat(3, 1fr); }
+  .stat-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .kpi-row { grid-template-columns: repeat(3, 1fr); }
+  .chart-row { grid-template-columns: 1fr; }
+  .shift-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .camp-row, .adset-row { grid-template-columns: 24px 1fr 80px 80px 90px; }
+  .camp-row > *:nth-child(n+6), .adset-row > *:nth-child(n+6) { display: none; }
+}
+@media (max-width: 640px) {
+  .main { padding: 1rem; }
+  .stat-grid, .stat-grid.cols-3, .stat-grid.cols-6 { grid-template-columns: 1fr; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: 1fr; }
+  .roadmap-row { grid-template-columns: 60px 1fr; }
+  .roadmap-row .why, .roadmap-row .channel { grid-column: 1 / -1; padding-left: 0; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 4 4 5-6"/></svg>
+    </div>
+    <div class="brand-text">
+      <div class="brand-name">My Dental</div>
+      <div class="brand-sub">Meta Ads 2026</div>
+    </div>
+  </div>
+
+  <a href="#overview" class="nav-link active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Overview
+  </a>
+  <a href="#performance" class="nav-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    Performance
+  </a>
+  <a href="#campaigns" class="nav-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    Campaigns
+  </a>
+  <a href="#creative" class="nav-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+    Creative Assets
+  </a>
+  <a href="#funnel" class="nav-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+    Funnel
+  </a>
+  <a href="#roadmap" class="nav-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    Roadmap
+  </a>
+</aside>
+
+<!-- ============ MAIN ============ -->
+<main class="main">
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="range-pill">L4W vs Prior</span>
+    <span class="range-label">Apr 18 – May 15, 2026 vs Mar 1 – Apr 17, 2026</span>
+  </div>
+  <div class="topbar-right">My Dental &amp; Implants · Wise Advertisement</div>
+</div>
+
+<div class="note">
+  <strong>Note:</strong> Meta data covers Feb 23 – May 15, 2026. CRM joined for Apr 4 – May 17, 2026 (6 weeks). Year-over-year not available — comparing last 4 weeks against the prior 6 weeks. Meta MCP API currently disabled for these accounts (Meta gradual rollout); data from CSV export.
+</div>
+
+<!-- ============ OVERVIEW: HEADLINE STATS ============ -->
+<section id="overview">
+  <div class="section-head">
+    <h2 class="section-title">Overview — Last 4 Weeks</h2>
+    <div class="section-sub">Spend joined to CRM-side qualification · 3 ad accounts combined</div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-icon coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="stat-value coral">$17,201</div>
+      <div class="stat-label">Spend</div>
+      <div class="stat-sub">prior: $21,743</div>
+      <div class="stat-delta">↓ 20.9%</div>
+    </div>
+    <div class="stat-card highlight-mint">
+      <div class="stat-icon mint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="stat-value mint">52</div>
+      <div class="stat-label">Qualified Leads</div>
+      <div class="stat-sub">prior: 6 in 2 weeks</div>
+      <div class="stat-delta up">↑ 767%</div>
+    </div>
+    <div class="stat-card highlighted">
+      <div class="stat-icon coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="stat-value coral">$331</div>
+      <div class="stat-label">Cost / Qualified Lead</div>
+      <div class="stat-sub">prior: $3,624</div>
+      <div class="stat-delta up">↓ 90.9%</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="stat-value purple">18.6%</div>
+      <div class="stat-label">Qualification Rate</div>
+      <div class="stat-sub">prior: 5.7%</div>
+      <div class="stat-delta up">↑ 226%</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERFORMANCE: KPI MINI + CHART ============ -->
+<section id="performance">
+  <div class="section-head">
+    <h2 class="section-title">Performance KPIs</h2>
+    <div class="section-sub">Meta delivery metrics · last 4 weeks vs prior</div>
+  </div>
+
+  <div class="kpi-row" id="kpiRow"></div>
+
+  <div class="chart-row">
+    <div class="chart-card full">
+      <div class="chart-title">Weekly Trajectory — Spend, CPL, CPQL, Qualification Rate</div>
+      <div class="chart-container tall"><canvas id="trendChart"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MONTHLY ============ -->
+<section>
+  <div class="section-head">
+    <h2 class="section-title">Monthly Results</h2>
+    <div class="section-sub">March → May 2026 · CRM coverage starts April</div>
+  </div>
+  <div class="stat-grid cols-3" id="monthlyCards"></div>
+</section>
+
+<!-- ============ STRATEGIC SHIFTS ============ -->
+<section>
+  <div class="section-head">
+    <h2 class="section-title">Strategic Shifts — What Changed</h2>
+    <div class="section-sub">Last 4 weeks vs prior 2 weeks of CRM data</div>
+  </div>
+
+  <div class="shift-grid">
+    <div class="shift-card">
+      <span class="badge coral">Impact</span>
+      <h3>Qualification rate tripled</h3>
+      <p>Prior 2 weeks of CRM data: 5.7% of Meta leads reached "qualified". Last 4 weeks: <strong style="color:var(--text)">18.6%</strong>. The funnel finally caught up to the volume.</p>
+      <div class="shift-comparison">
+        <div class="shift-side"><div class="label">Prior</div><div class="value">5.7%</div></div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-side now"><div class="label">L4w</div><div class="value">18.6%</div></div>
+      </div>
+    </div>
+    <div class="shift-card">
+      <span class="badge coral">Impact</span>
+      <h3>CPQL collapsed 91%</h3>
+      <p>Cost per qualified lead dropped from $3,624 to $331 in just 4 weeks. Same audience pool, far better downstream funnel performance.</p>
+      <div class="shift-comparison">
+        <div class="shift-side"><div class="label">Prior</div><div class="value">$3,624</div></div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-side now"><div class="label">L4w</div><div class="value">$331</div></div>
+      </div>
+    </div>
+    <div class="shift-card">
+      <span class="badge amber">New</span>
+      <h3>Lead | TOF launched May 4</h3>
+      <p>Brand-new TOF prospecting campaign on the new "Lead Gen" naming. $3,170 spent, 15 qualified leads, $211 CPQL — instantly Tier A.</p>
+      <div class="shift-comparison">
+        <div class="shift-side"><div class="label">Spend</div><div class="value">$3,170</div></div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-side now"><div class="label">Qualified</div><div class="value">15</div></div>
+      </div>
+    </div>
+    <div class="shift-card">
+      <span class="badge amber">New</span>
+      <h3>"All-in-4" video creative set</h3>
+      <p>Three video ads (Vid 1/2/3) launched April. Vid 1 alone delivered 16 qualified leads at $180 CPQL — best creative in the account.</p>
+      <div class="shift-comparison">
+        <div class="shift-side"><div class="label">Best CPQL</div><div class="value">$180</div></div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-side now"><div class="label">Qualified</div><div class="value">16</div></div>
+      </div>
+    </div>
+    <div class="shift-card">
+      <span class="badge purple">Shifted</span>
+      <h3>Efficiency improved across the board</h3>
+      <p>CPL $40.04 → $26.46 (−34%). CPM $32.27 → $24.72 (−23%). Auction efficiency improved while spend scaled up.</p>
+      <div class="shift-comparison">
+        <div class="shift-side"><div class="label">CPL prior</div><div class="value">$40.04</div></div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-side now"><div class="label">CPL L4w</div><div class="value">$26.46</div></div>
+      </div>
+    </div>
+    <div class="shift-card">
+      <span class="badge coral">Leak</span>
+      <h3>Single Implant | Ad 2 = the anchor</h3>
+      <p>The single largest spend line: $3,817 · 0 deep-qualified leads · $636 CPQL. Pausing this alone would lift account-blended CPQL by ~$80.</p>
+      <div class="shift-comparison">
+        <div class="shift-side"><div class="label">Spend</div><div class="value">$3,817</div></div>
+        <div class="shift-arrow">→</div>
+        <div class="shift-side now"><div class="label">Deep Q</div><div class="value">0</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAMPAIGNS + ADSETS ============ -->
+<section id="campaigns">
+  <div class="section-head">
+    <h2 class="section-title">Campaigns &amp; Ad Sets</h2>
+    <div class="section-sub">Meta spend joined to CRM qualification · Click campaign to expand ad sets · Sorted by spend</div>
+  </div>
+  <div class="hierarchy" id="hierarchy"></div>
+</section>
+
+<!-- ============ CREATIVE ASSETS ============ -->
+<section id="creative">
+  <div class="section-head">
+    <h2 class="section-title">Creative Assets — Apr → May 2026</h2>
+    <div class="section-sub">Unique ads with &gt;$100 spend · Classified by naming convention</div>
+  </div>
+
+  <div class="stat-grid" id="creativeStats"></div>
+  <div style="margin-top: 1.25rem"></div>
+  <div class="total-bar">Total ads: <strong id="totalAds">—</strong> · Apr 4 – May 17, 2026</div>
+
+  <div class="chart-row">
+    <div class="chart-card">
+      <div class="chart-title">Creative Mix — Apr → May 2026</div>
+      <div class="chart-with-legend">
+        <div class="chart-container"><canvas id="mixChart"></canvas></div>
+        <div class="legend-list" id="mixLegend"></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Creative Volume by Month</div>
+      <div class="chart-container"><canvas id="volChart"></canvas></div>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem">
+    <div class="section-sub" style="margin-bottom: 0.4rem">Ads by Category</div>
+    <div class="chips" id="adFilters">
+      <button class="chip active coral" data-filter="all">All ads</button>
+      <button class="chip" data-filter="Single Implant">Single Implant</button>
+      <button class="chip" data-filter="AOX">AOX $348/month</button>
+      <button class="chip" data-filter="Vid">All-in-4 Video</button>
+      <button class="chip" data-filter="Testimonial">Testimonial</button>
+      <button class="chip" data-filter="Retargeting">Retargeting</button>
+    </div>
+  </div>
+
+  <div style="margin-top: 1rem"></div>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<!-- ============ FUNNEL ============ -->
+<section id="funnel">
+  <div class="section-head">
+    <h2 class="section-title">Funnel — Where Meta Leads Land</h2>
+    <div class="section-sub">CRM-attributed Meta leads · Apr 4 – May 17, 2026</div>
+  </div>
+  <div class="note" style="border-left-color: var(--coral)">
+    <strong style="color: var(--coral)">$3,800 leak:</strong> 146 Meta-sourced leads (35.8% of all Meta leads) have phone numbers captured but remain in "No Communication" status. Fixing this is the highest-leverage CRM operations move available — no incremental ad spend required.
+  </div>
+  <div class="funnel-grid" id="funnelGrid"></div>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section id="roadmap">
+  <div class="section-head">
+    <h2 class="section-title">Roadmap — What to Do Next</h2>
+    <div class="section-sub">Priority-ranked by expected impact · P0 immediate · P1 within 2 weeks · P2 within 30 days</div>
+  </div>
+
+  <div class="roadmap-group">
+    <div class="roadmap-group-title">Wins to scale</div>
+    <div class="roadmap-card">
+      <div class="roadmap-row">
+        <div class="priority p0">P0</div>
+        <div class="init">Scale Lead Gen | Pixel | MOF</div>
+        <div class="why">$80 CPQL at 57% qualification rate. Currently $641 spend — push to 4-5× over next 2 weeks. Expected: +12 qualified leads/wk at $200-250 CPQL even with diminishing returns.</div>
+        <div class="channel">Meta</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p0">P0</div>
+        <div class="init">Scale Testimonial | B 5×</div>
+        <div class="why">$67 CPQL — best in the account — but only $536 invested. Single highest-leverage scale opportunity available. Have variants B and C in production within 14 days.</div>
+        <div class="channel">Meta · Creative</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p1">P1</div>
+        <div class="init">Duplicate "Sun City / Retired" audience</div>
+        <div class="why">$182 CPQL at 32% qualification rate. Likely the geographic-demographic match-up for implant patients. Build a parallel ad set at 2× budget, monitor frequency &gt; 2.0× as exit signal.</div>
+        <div class="channel">Meta · Audience</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-group">
+    <div class="roadmap-group-title">Leaks to fix</div>
+    <div class="roadmap-card">
+      <div class="roadmap-row">
+        <div class="priority p0">P0</div>
+        <div class="init">Pause Single Implant | Ad 2 + parent campaign</div>
+        <div class="why">$9,575 combined spend, 0 deep-qualified leads. Relaunch via Lead | TOF structure with new creative. Recover ~$9.6K/qtr.</div>
+        <div class="channel">Meta</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p0">P0</div>
+        <div class="init">Fix "No Communication" CRM leak</div>
+        <div class="why">146 leads (~$3,800 worth) never receive a call. Audit lead-routing: speed-to-lead &lt;5min via SMS auto-reply, Twilio Lookup validation, 3-attempt call cadence. Pure operations fix.</div>
+        <div class="channel">CRM Ops</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p1">P1</div>
+        <div class="init">Audit Thurplay | TOF campaign</div>
+        <div class="why">$1,390 spent, 0 leads. Either misconfigured objective or pure awareness play in a performance account. Verify objective; fix or pause.</div>
+        <div class="channel">Meta</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p1">P1</div>
+        <div class="init">Re-edit AOX "Fear &amp; Money?" video</div>
+        <div class="why">Hook rate 0.42 (great) but hold rate 3.2% (poor). First 3 seconds work; middle drops off. Front-load the offer in seconds 2-4. ~30% CPL improvement expected.</div>
+        <div class="channel">Meta · Creative</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p2">P2</div>
+        <div class="init">Tighten geo-targeting</div>
+        <div class="why">18 out-of-state Meta leads = $468 in geo-waste. Confirm all campaigns target ZIP-radius around 85308 rather than state-level.</div>
+        <div class="channel">Meta</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-group">
+    <div class="roadmap-group-title">Measurement gaps</div>
+    <div class="roadmap-card">
+      <div class="roadmap-row">
+        <div class="priority p2">P2</div>
+        <div class="init">UTM coverage on Meta lead forms</div>
+        <div class="why">~12% of Paid Social CRM leads have no UTM tags. Configure Meta lead forms to inject utm_source/medium/campaign/content via Zapier or native CRM integration.</div>
+        <div class="channel">Tracking</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p2">P2</div>
+        <div class="init">Promote "Started Treatment" to formal stage</div>
+        <div class="why">Currently only a Tag, not a Stage / Status value. Limits deep-qualified reporting. Standardize across CRM workflow.</div>
+        <div class="channel">CRM</div>
+      </div>
+      <div class="roadmap-row">
+        <div class="priority p2">P2</div>
+        <div class="init">Backfill Oppt Value on closed deals</div>
+        <div class="why">Only 4% of leads have Oppt Value populated — blocks direct ROAS calculation. Source from billed-procedure value or use CPQL as the durable north-star.</div>
+        <div class="channel">CRM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h5>Methodology</h5>
+      Strict qualification = Appt Scheduled + Showed + Proposal + Started + Closed. Meta MCP API currently disabled for these accounts; data from CSV export.
+    </div>
+    <div>
+      <h5>Data scope</h5>
+      Meta: Feb 23 – May 15, 2026 (12 weeks)<br>
+      CRM: Apr 4 – May 17, 2026 (6 weeks)<br>
+      Join: First UTM Source = facebook
+    </div>
+    <div>
+      <h5>Coverage</h5>
+      3 ad accounts · 1,506 Meta records · 408 Meta-attributed CRM leads · 10 campaigns · 17 ad sets
+    </div>
+  </div>
+</footer>
+
+</main>
+</div>
+
+<script>
+const DATA = {"narrative": {"last4w": {"spend": 17201, "leads": 650, "cpl": 26.46, "ctr": 0.66, "cpm": 24.72, "crm_leads": 280, "qualified": 52, "deep": 4, "qual_rate": 18.6, "cpql": 330.79}, "prior": {"spend": 21743, "leads": 543, "cpl": 40.04, "ctr": 0.86, "cpm": 32.27, "crm_leads": 106, "qualified": 6, "deep": 4, "qual_rate": 5.7, "cpql": 3623.76}, "full": {"spend": 38943, "leads": 1193}}, "monthly": [{"month": "Mar", "spend": 14659.980000000001, "leads": 362, "impr": 391897, "clicks": 3837, "cpl": 40.49718232044199, "ctr": 0.9790837898733596, "cpm": 37.407737237080156, "crm_leads": 0, "qualified": 0, "deep": 0, "qual_rate": 0}, {"month": "Apr", "spend": 14329.94, "leads": 445, "impr": 595706, "clicks": 3899, "cpl": 32.20211235955056, "ctr": 0.6545174968860478, "cpm": 24.055389739233785, "crm_leads": 251, "qualified": 30, "deep": 7, "qual_rate": 11.952191235059761}, {"month": "May", "spend": 9953.45, "leads": 386, "impr": 381847, "clicks": 2628, "cpl": 25.786139896373058, "ctr": 0.6882337690226714, "cpm": 26.06659211673786, "crm_leads": 157, "qualified": 31, "deep": 1, "qual_rate": 19.745222929936308}], "weekly": [{"week_str": "Feb 23", "spend": 694.55, "leads": 21, "cpl": 33.07, "cpql": NaN, "crm_leads": 0.0, "qualified": 0.0, "qual_rate": 0.0}, {"week_str": "Mar 02", "spend": 3767.67, "leads": 100, "cpl": 37.68, "cpql": NaN, "crm_leads": 0.0, "qualified": 0.0, "qual_rate": 0.0}, {"week_str": "Mar 09", "spend": 3749.7, "leads": 80, "cpl": 46.87, "cpql": NaN, "crm_leads": 0.0, "qualified": 0.0, "qual_rate": 0.0}, {"week_str": "Mar 16", "spend": 2820.14, "leads": 65, "cpl": 43.39, "cpql": NaN, "crm_leads": 0.0, "qualified": 0.0, "qual_rate": 0.0}, {"week_str": "Mar 23", "spend": 2796.38, "leads": 81, "cpl": 34.52, "cpql": NaN, "crm_leads": 0.0, "qualified": 0.0, "qual_rate": 0.0}, {"week_str": "Mar 30", "spend": 2761.93, "leads": 66, "cpl": 41.85, "cpql": NaN, "crm_leads": 0.0, "qualified": 0.0, "qual_rate": 0.0}, {"week_str": "Apr 06", "spend": 3319.08, "leads": 85, "cpl": 39.05, "cpql": 1659.54, "crm_leads": 70.0, "qualified": 2.0, "qual_rate": 2.86}, {"week_str": "Apr 13", "spend": 3316.28, "leads": 82, "cpl": 40.44, "cpql": 663.26, "crm_leads": 58.0, "qualified": 5.0, "qual_rate": 8.62}, {"week_str": "Apr 20", "spend": 3620.78, "leads": 135, "cpl": 26.82, "cpql": 258.63, "crm_leads": 75.0, "qualified": 14.0, "qual_rate": 18.67}, {"week_str": "Apr 27", "spend": 3668.73, "leads": 162, "cpl": 22.65, "cpql": 215.81, "crm_leads": 89.0, "qualified": 17.0, "qual_rate": 19.1}, {"week_str": "May 04", "spend": 4512.71, "leads": 181, "cpl": 24.93, "cpql": 250.71, "crm_leads": 80.0, "qualified": 18.0, "qual_rate": 22.5}, {"week_str": "May 11", "spend": 3915.42, "leads": 135, "cpl": 29.0, "cpql": 783.08, "crm_leads": 36.0, "qualified": 5.0, "qual_rate": 13.89}], "campaigns": [{"campaign": "My Dental & Implants > Glendale, AZ > Single Implants [NEW-MARCH] V2", "spend": 5757.8, "impr": 315850, "clicks": 2080, "leads_meta": 183, "crm_leads": 104.0, "qualified": 6.0, "deep_qualified": 0.0, "cpl": 31.46, "cpql": 959.63, "ctr": 0.66, "qual_rate": 5.77}, {"campaign": "My Dental & Implants > Glendale, AZ > AOX*[NEW-MARCH] V2", "spend": 5297.86, "impr": 85780, "clicks": 1304, "leads_meta": 181, "crm_leads": 96.0, "qualified": 11.0, "deep_qualified": 2.0, "cpl": 29.27, "cpql": 481.62, "ctr": 1.52, "qual_rate": 11.46}, {"campaign": "My Dental & Implants > Glendale, AZ > AOX [New Videos] [New -March]", "spend": 3389.73, "impr": 33203, "clicks": 711, "leads_meta": 149, "crm_leads": 80.0, "qualified": 11.0, "deep_qualified": 4.0, "cpl": 22.75, "cpql": 308.16, "ctr": 2.14, "qual_rate": 13.75}, {"campaign": "Lead | TOF | Abo | US | 5/4/2026", "spend": 3170.4, "impr": 62155, "clicks": 633, "leads_meta": 143, "crm_leads": 68.0, "qualified": 15.0, "deep_qualified": 2.0, "cpl": 22.17, "cpql": 211.36, "ctr": 1.02, "qual_rate": 22.06}, {"campaign": "Lead | MOF| Abo | US | 14/4/2026", "spend": 1844.52, "impr": 33142, "clicks": 343, "leads_meta": 72, "crm_leads": 32.0, "qualified": 7.0, "deep_qualified": 0.0, "cpl": 25.62, "cpql": 263.5, "ctr": 1.03, "qual_rate": 21.88}, {"campaign": "Thurplay | TOF | Abo | US | 5/8/2026", "spend": 1390.07, "impr": 372073, "clicks": 571, "leads_meta": 0, "crm_leads": 0.0, "qualified": 0.0, "deep_qualified": 0.0, "cpl": 0.0, "cpql": 0.0, "ctr": 0.15, "qual_rate": 0.0}, {"campaign": "Lead Gen | Pixel | TOF | Abo | US | 6/5/2026", "spend": 796.68, "impr": 17800, "clicks": 209, "leads_meta": 19, "crm_leads": 9.0, "qualified": 0.0, "deep_qualified": 0.0, "cpl": 41.93, "cpql": 0.0, "ctr": 1.17, "qual_rate": 0.0}, {"campaign": "Lead Gen | Pixel | BOF | Abo | 9-5-2026", "spend": 705.15, "impr": 17234, "clicks": 155, "leads_meta": 9, "crm_leads": 2.0, "qualified": 1.0, "deep_qualified": 0.0, "cpl": 78.35, "cpql": 705.15, "ctr": 0.9, "qual_rate": 50.0}, {"campaign": "Lead Gen | Pixel |  MOF| Abo | US | 6/5/2026", "spend": 641.19, "impr": 9500, "clicks": 146, "leads_meta": 41, "crm_leads": 14.0, "qualified": 8.0, "deep_qualified": 0.0, "cpl": 15.64, "cpql": 80.15, "ctr": 1.54, "qual_rate": 57.14}, {"campaign": "Lead Gen | Bof | Abo |", "spend": 151.71, "impr": 2039, "clicks": 37, "leads_meta": 1, "crm_leads": 1.0, "qualified": 0.0, "deep_qualified": 0.0, "cpl": 151.71, "cpql": 0.0, "ctr": 1.81, "qual_rate": 0.0}], "adsets": [{"adset": "MW 35+ | Glendale, AZ +15 miles | Single Implant", "spend": 5757.8, "leads_meta": 183, "crm_leads": 104.0, "qualified": 6.0, "cpql": 959.63, "cpl": 31.46, "qual_rate": 5.77}, {"adset": "MW 45+ | Glendale, AZ +15 miles | AOX [New Videos]", "spend": 3389.73, "leads_meta": 149, "crm_leads": 80.0, "qualified": 11.0, "cpql": 308.16, "cpl": 22.75, "qual_rate": 13.75}, {"adset": "Retired / Older Lifestyle|Sun City | 55-65 |", "spend": 2552.09, "leads_meta": 85, "crm_leads": 44.0, "qualified": 14.0, "cpql": 182.29, "cpl": 30.02, "qual_rate": 31.82}, {"adset": "Broad Local | Gelendale | 45-65| Advantage +", "spend": 1936.96, "leads_meta": 58, "crm_leads": 26.0, "qualified": 3.0, "cpql": 645.65, "cpl": 33.4, "qual_rate": 11.54}, {"adset": "MW 45+ | Glendale, AZ +15 miles | AOX  | Retargeting", "spend": 1347.74, "leads_meta": 55, "crm_leads": 25.0, "qualified": 3.0, "cpql": 449.25, "cpl": 24.5, "qual_rate": 12.0}, {"adset": "MW 45+ | Glendale, AZ +15 miles | AOX [Old Content]", "spend": 1006.74, "leads_meta": 38, "crm_leads": 21.0, "qualified": 2.0, "cpql": 503.37, "cpl": 26.49, "qual_rate": 9.52}, {"adset": "25% Video Viewe | Gelendale | 45-65| Advantage +", "spend": 1002.47, "leads_meta": 47, "crm_leads": 21.0, "qualified": 7.0, "cpql": 143.21, "cpl": 21.33, "qual_rate": 33.33}, {"adset": "MW 45+ | Glendale, AZ +15 miles | AOX [Old Content] (2)", "spend": 982.44, "leads_meta": 37, "crm_leads": 21.0, "qualified": 4.0, "cpql": 245.61, "cpl": 26.55, "qual_rate": 19.05}, {"adset": "MW 45+ | Glendale, AZ +15 miles | AOX [New Content] (2)", "spend": 982.03, "leads_meta": 27, "crm_leads": 14.0, "qualified": 1.0, "cpql": 982.03, "cpl": 36.37, "qual_rate": 7.14}, {"adset": "MW 45+ | Glendale, AZ +15 miles | AOX [New Content]", "spend": 978.91, "leads_meta": 24, "crm_leads": 15.0, "qualified": 1.0, "cpql": 978.91, "cpl": 40.79, "qual_rate": 6.67}, {"adset": "LAL 1% | Gelendale | 45-65| Advantage +", "spend": 842.05, "leads_meta": 25, "crm_leads": 11.0, "qualified": 0.0, "cpql": 0.0, "cpl": 33.68, "qual_rate": 0.0}, {"adset": "Lead | Broad Local | Gelendale | 45-65| Advantage +", "spend": 796.68, "leads_meta": 19, "crm_leads": 9.0, "qualified": 0.0, "cpql": 0.0, "cpl": 41.93, "qual_rate": 0.0}, {"adset": "Lead | 25% Video Viewe | Gelendale | 45-65| Advantage +", "spend": 641.19, "leads_meta": 41, "crm_leads": 14.0, "qualified": 8.0, "cpql": 80.15, "cpl": 15.64, "qual_rate": 57.14}, {"adset": "Lead | Remarketng | +50% Vid View | Male | 9-5-2026", "spend": 354.82, "leads_meta": 7, "crm_leads": 2.0, "qualified": 1.0, "cpql": 354.82, "cpl": 50.69, "qual_rate": 50.0}, {"adset": "Lead | Remarketng | +50% Vid View | Female | 9-5-2026", "spend": 350.33, "leads_meta": 2, "crm_leads": 0.0, "qualified": 0.0, "cpql": 0.0, "cpl": 175.16, "qual_rate": 0.0}, {"adset": "Retargeting | Video View 3 Sec | Not submited From|", "spend": 151.71, "leads_meta": 1, "crm_leads": 1.0, "qualified": 0.0, "cpql": 0.0, "cpl": 151.71, "qual_rate": 0.0}], "ads": [{"ad": "Single Implant | Ad 2", "spend": 3817.05, "leads_meta": 128, "impr": 210456, "clicks": 1442, "v3s": 0, "v75": 0, "crm_leads": 72.0, "qualified": 6.0, "deep_qualified": 0.0, "cpql": 636.18, "cpl": 29.82, "ctr": 0.69, "hook": 0.0, "hold": 0.0}, {"ad": "AOX $348/month | Ad 3:  Fear & Money?", "spend": 3368.31, "leads_meta": 148, "impr": 32917, "clicks": 706, "v3s": 13725, "v75": 441, "crm_leads": 79.0, "qualified": 11.0, "deep_qualified": 4.0, "cpql": 306.21, "cpl": 22.76, "ctr": 2.14, "hook": 41.7, "hold": 3.21}, {"ad": "Vid 1 |Missing Teeth | All in 4 | 5/4/2026", "spend": 2880.46, "leads_meta": 147, "impr": 64182, "clicks": 607, "v3s": 12466, "v75": 1576, "crm_leads": 63.0, "qualified": 16.0, "deep_qualified": 0.0, "cpql": 180.03, "cpl": 19.59, "ctr": 0.95, "hook": 19.42, "hold": 12.64}, {"ad": "Single Implant | Ad 1", "spend": 1746.7, "leads_meta": 51, "impr": 97356, "clicks": 589, "v3s": 0, "v75": 0, "crm_leads": 31.0, "qualified": 0.0, "deep_qualified": 0.0, "cpql": 0.0, "cpl": 34.25, "ctr": 0.6, "hook": 0.0, "hold": 0.0}, {"ad": "Vid 2 | Still dealing with |All in 4 | 5/4/2026", "spend": 1713.54, "leads_meta": 44, "impr": 93142, "clicks": 348, "v3s": 33988, "v75": 1241, "crm_leads": 24.0, "qualified": 4.0, "deep_qualified": 2.0, "cpql": 428.38, "cpl": 38.94, "ctr": 0.37, "hook": 36.49, "hold": 3.65}, {"ad": "Vid 3 | You\u2019ve looked |All in 4 | 5/4/2026 \u2013 Copy", "spend": 1407.83, "leads_meta": 43, "impr": 29051, "clicks": 314, "v3s": 5158, "v75": 646, "crm_leads": 22.0, "qualified": 2.0, "deep_qualified": 0.0, "cpql": 703.92, "cpl": 32.74, "ctr": 1.08, "hook": 17.75, "hold": 12.52}, {"ad": "Retargeting | Ad 3", "spend": 1042.44, "leads_meta": 35, "impr": 25711, "clicks": 212, "v3s": 5282, "v75": 1887, "crm_leads": 20.0, "qualified": 2.0, "deep_qualified": 0.0, "cpql": 521.22, "cpl": 29.78, "ctr": 0.82, "hook": 20.54, "hold": 35.73}, {"ad": "AOX $348/month | Ad 5 [why is AOX the best option]", "spend": 982.44, "leads_meta": 37, "impr": 11958, "clicks": 248, "v3s": 2698, "v75": 209, "crm_leads": 21.0, "qualified": 4.0, "deep_qualified": 2.0, "cpql": 245.61, "cpl": 26.55, "ctr": 2.07, "hook": 22.56, "hold": 7.75}, {"ad": "AOX $348/month | Ad 11: Fear & Money?", "spend": 978.91, "leads_meta": 24, "impr": 12861, "clicks": 207, "v3s": 4449, "v75": 134, "crm_leads": 15.0, "qualified": 1.0, "deep_qualified": 0.0, "cpql": 978.91, "cpl": 40.79, "ctr": 1.61, "hook": 34.59, "hold": 3.01}, {"ad": "Vid 3 | You\u2019ve looked |All in 4 | 5/4/2026 \u2013 C", "spend": 938.01, "leads_meta": 0, "impr": 238108, "clicks": 364, "v3s": 156092, "v75": 4927, "crm_leads": 1.0, "qualified": 1.0, "deep_qualified": 0.0, "cpql": 938.01, "cpl": 0.0, "ctr": 0.15, "hook": 65.56, "hold": 3.16}, {"ad": "AOX $348/month | Ad 12: Fall intro", "spend": 603.14, "leads_meta": 20, "impr": 9721, "clicks": 210, "v3s": 5370, "v75": 2853, "crm_leads": 8.0, "qualified": 1.0, "deep_qualified": 0.0, "cpql": 603.14, "cpl": 30.16, "ctr": 2.16, "hook": 55.24, "hold": 53.13}, {"ad": "AOX $348/month | Ad 6 [Dr. Nima AOX]", "spend": 554.43, "leads_meta": 24, "impr": 8992, "clicks": 140, "v3s": 1452, "v75": 111, "crm_leads": 12.0, "qualified": 2.0, "deep_qualified": 0.0, "cpql": 277.21, "cpl": 23.1, "ctr": 1.56, "hook": 16.15, "hold": 7.64}, {"ad": "Testimonial | B | 5-6-2026", "spend": 536.19, "leads_meta": 40, "impr": 7981, "clicks": 128, "v3s": 1388, "v75": 205, "crm_leads": 14.0, "qualified": 8.0, "deep_qualified": 0.0, "cpql": 67.02, "cpl": 13.4, "ctr": 1.6, "hook": 17.39, "hold": 14.77}, {"ad": "AOX $348/month | Ad 7", "spend": 452.31, "leads_meta": 14, "impr": 6982, "clicks": 118, "v3s": 2698, "v75": 314, "crm_leads": 9.0, "qualified": 0.0, "deep_qualified": 0.0, "cpql": 0.0, "cpl": 32.31, "ctr": 1.69, "hook": 38.64, "hold": 11.64}, {"ad": "AOX $348/month | Ad 10: Missing Teeth", "spend": 378.89, "leads_meta": 7, "impr": 4580, "clicks": 93, "v3s": 853, "v75": 64, "crm_leads": 6.0, "qualified": 0.0, "deep_qualified": 0.0, "cpql": 0.0, "cpl": 54.13, "ctr": 2.03, "hook": 18.62, "hold": 7.5}, {"ad": "Banner | A | Before/After | 9-5-2026", "spend": 330.67, "leads_meta": 7, "impr": 6304, "clicks": 68, "v3s": 0, "v75": 0, "crm_leads": 2.0, "qualified": 1.0, "deep_qualified": 0.0, "cpql": 330.67, "cpl": 47.24, "ctr": 1.08, "hook": 0.0, "hold": 0.0}, {"ad": "Banner | C | Before/After | 9-5-2026", "spend": 316.27, "leads_meta": 2, "impr": 5876, "clicks": 51, "v3s": 0, "v75": 0, "crm_leads": 0.0, "qualified": 0.0, "deep_qualified": 0.0, "cpql": 0.0, "cpl": 158.14, "ctr": 0.87, "hook": 0.0, "hold": 0.0}, {"ad": "Retargeting | Ad 2", "spend": 305.3, "leads_meta": 20, "impr": 4975, "clicks": 76, "v3s": 1248, "v75": 269, "crm_leads": 5.0, "qualified": 1.0, "deep_qualified": 0.0, "cpql": 305.3, "cpl": 15.26, "ctr": 1.53, "hook": 25.09, "hold": 21.55}, {"ad": "C -Vid 1 |Missing Teeth | All in 4 | 5/4/2026", "spend": 208.61, "leads_meta": 0, "impr": 58370, "clicks": 83, "v3s": 37242, "v75": 992, "crm_leads": 1.0, "qualified": 1.0, "deep_qualified": 0.0, "cpql": 208.61, "cpl": 0.0, "ctr": 0.14, "hook": 63.8, "hold": 2.66}, {"ad": "Single Implant | Ad 3", "spend": 194.05, "leads_meta": 4, "impr": 8038, "clicks": 49, "v3s": 0, "v75": 0, "crm_leads": 1.0, "qualified": 0.0, "deep_qualified": 0.0, "cpql": 0.0, "cpl": 48.51, "ctr": 0.61, "hook": 0.0, "hold": 0.0}, {"ad": "Vid | She hadn\u2019t smiled |13/4/2026", "spend": 151.71, "leads_meta": 1, "impr": 2039, "clicks": 37, "v3s": 384, "v75": 82, "crm_leads": 1.0, "qualified": 0.0, "deep_qualified": 0.0, "cpql": 0.0, "cpl": 151.71, "ctr": 1.81, "hook": 18.83, "hold": 21.35}], "funnel": [{"stage": "New / No Comm", "count": 171}, {"stage": "Not Interested", "count": 60}, {"stage": "Out of State", "count": 18}, {"stage": "In Conversation", "count": 84}, {"stage": "Appointment Scheduled", "count": 53}, {"stage": "No Show", "count": 14}, {"stage": "Treatment Proposal", "count": 3}, {"stage": "Closed", "count": 5}], "accounts": [{"name": "My Dental & Implants", "l4_spend": 7636, "l4_leads": 280, "l4_cpl": 27.27, "pr_spend": 15782, "pr_leads": 398, "pr_cpl": 39.65}, {"name": "2026-My Dental & Implants", "l4_spend": 7299, "l4_leads": 252, "l4_cpl": 28.96, "pr_spend": 1401, "pr_leads": 33, "pr_cpl": 42.45}, {"name": "My Dental & Implants - 2nd Ad Account", "l4_spend": 2266, "l4_leads": 118, "l4_cpl": 19.2, "pr_spend": 4560, "pr_leads": 112, "pr_cpl": 40.71}], "campaigns_nested": [{"campaign": "My Dental & Implants > Glendale, AZ > Single Implants [NEW-MARCH] V2", "spend": 5757.8, "leads_meta": 183, "cpl": 31.46, "crm_leads": 104, "qualified": 6, "deep_qualified": 0, "cpql": 959.63, "qual_rate": 5.8, "ctr": 0.66, "tier": "C \u00b7 Cut", "tier_color": "coral", "adsets": [{"name": "MW 35+ | Glendale, AZ +15 miles | Single Implant", "spend": 5757.8, "leads_meta": 183, "cpl": 31.46, "crm_leads": 104, "qualified": 6, "cpql": 959.63, "qual_rate": 5.8, "ctr": 0.66}]}, {"campaign": "My Dental & Implants > Glendale, AZ > AOX*[NEW-MARCH] V2", "spend": 5297.86, "leads_meta": 181, "cpl": 29.27, "crm_leads": 96, "qualified": 11, "deep_qualified": 2, "cpql": 481.62, "qual_rate": 11.5, "ctr": 1.52, "tier": "B \u00b7 Watch", "tier_color": "warm", "adsets": [{"name": "MW 45+ | Glendale, AZ +15 miles | AOX  | Retargeting", "spend": 1347.74, "leads_meta": 55, "cpl": 24.5, "crm_leads": 25, "qualified": 3, "cpql": 449.25, "qual_rate": 12.0, "ctr": 0.94}, {"name": "MW 45+ | Glendale, AZ +15 miles | AOX [Old Content]", "spend": 1006.74, "leads_meta": 38, "cpl": 26.49, "crm_leads": 21, "qualified": 2, "cpql": 503.37, "qual_rate": 9.5, "ctr": 1.62}, {"name": "MW 45+ | Glendale, AZ +15 miles | AOX [Old Content] (2)", "spend": 982.44, "leads_meta": 37, "cpl": 26.55, "crm_leads": 21, "qualified": 4, "cpql": 245.61, "qual_rate": 19.0, "ctr": 2.07}, {"name": "MW 45+ | Glendale, AZ +15 miles | AOX [New Content] (2)", "spend": 982.03, "leads_meta": 27, "cpl": 36.37, "crm_leads": 14, "qualified": 1, "cpql": 982.03, "qual_rate": 7.1, "ctr": 2.12}, {"name": "MW 45+ | Glendale, AZ +15 miles | AOX [New Content]", "spend": 978.91, "leads_meta": 24, "cpl": 40.79, "crm_leads": 15, "qualified": 1, "cpql": 978.91, "qual_rate": 6.7, "ctr": 1.61}]}, {"campaign": "My Dental & Implants > Glendale, AZ > AOX [New Videos] [New -March]", "spend": 3389.73, "leads_meta": 149, "cpl": 22.75, "crm_leads": 80, "qualified": 11, "deep_qualified": 4, "cpql": 308.16, "qual_rate": 13.8, "ctr": 2.14, "tier": "B \u00b7 Watch", "tier_color": "warm", "adsets": [{"name": "MW 45+ | Glendale, AZ +15 miles | AOX [New Videos]", "spend": 3389.73, "leads_meta": 149, "cpl": 22.75, "crm_leads": 80, "qualified": 11, "cpql": 308.16, "qual_rate": 13.8, "ctr": 2.14}]}, {"campaign": "Lead | TOF | Abo | US | 5/4/2026", "spend": 3170.4, "leads_meta": 143, "cpl": 22.17, "crm_leads": 68, "qualified": 15, "deep_qualified": 2, "cpql": 211.36, "qual_rate": 22.1, "ctr": 1.02, "tier": "A \u00b7 Scale", "tier_color": "mint", "adsets": [{"name": "Retired / Older Lifestyle|Sun City | 55-65 |", "spend": 1855.86, "leads_meta": 85, "cpl": 21.83, "crm_leads": 42, "qualified": 12, "cpql": 154.66, "qual_rate": 28.6, "ctr": 0.97}, {"name": "Broad Local | Gelendale | 45-65| Advantage +", "spend": 1243.12, "leads_meta": 58, "cpl": 21.43, "crm_leads": 26, "qualified": 3, "cpql": 414.37, "qual_rate": 11.5, "ctr": 1.07}, {"name": "Homeowners | Stable Income| Gelendale | 45-65|", "spend": 71.42, "leads_meta": 0, "cpl": 0, "crm_leads": 0, "qualified": 0, "cpql": 0, "qual_rate": 0, "ctr": 1.58}]}, {"campaign": "Lead | MOF| Abo | US | 14/4/2026", "spend": 1844.52, "leads_meta": 72, "cpl": 25.62, "crm_leads": 32, "qualified": 7, "deep_qualified": 0, "cpql": 263.5, "qual_rate": 21.9, "ctr": 1.03, "tier": "B \u00b7 Watch", "tier_color": "warm", "adsets": [{"name": "25% Video Viewe | Gelendale | 45-65| Advantage +", "spend": 1002.47, "leads_meta": 47, "cpl": 21.33, "crm_leads": 21, "qualified": 7, "cpql": 143.21, "qual_rate": 33.3, "ctr": 0.88}, {"name": "LAL 1% | Gelendale | 45-65| Advantage +", "spend": 842.05, "leads_meta": 25, "cpl": 33.68, "crm_leads": 11, "qualified": 0, "cpql": 0, "qual_rate": 0.0, "ctr": 1.35}]}, {"campaign": "Thurplay | TOF | Abo | US | 5/8/2026", "spend": 1390.07, "leads_meta": 0, "cpl": 0, "crm_leads": 0, "qualified": 0, "deep_qualified": 0, "cpql": 0, "qual_rate": 0, "ctr": 0.15, "tier": "\u2014", "tier_color": "gray", "adsets": [{"name": "Retired / Older Lifestyle|Sun City | 55-65 |", "spend": 696.23, "leads_meta": 0, "cpl": 0, "crm_leads": 0, "qualified": 0, "cpql": 0, "qual_rate": 0, "ctr": 0.15}, {"name": "Broad Local | Gelendale | 45-65| Advantage +", "spend": 693.84, "leads_meta": 0, "cpl": 0, "crm_leads": 0, "qualified": 0, "cpql": 0, "qual_rate": 0, "ctr": 0.16}]}, {"campaign": "Lead Gen | Pixel | TOF | Abo | US | 6/5/2026", "spend": 796.68, "leads_meta": 19, "cpl": 41.93, "crm_leads": 9, "qualified": 0, "deep_qualified": 0, "cpql": 0, "qual_rate": 0.0, "ctr": 1.17, "tier": "C \u00b7 Cut", "tier_color": "coral", "adsets": [{"name": "Lead | Broad Local | Gelendale | 45-65| Advantage +", "spend": 796.68, "leads_meta": 19, "cpl": 41.93, "crm_leads": 9, "qualified": 0, "cpql": 0, "qual_rate": 0.0, "ctr": 1.17}]}, {"campaign": "Lead Gen | Pixel | BOF | Abo | 9-5-2026", "spend": 705.15, "leads_meta": 9, "cpl": 78.35, "crm_leads": 2, "qualified": 1, "deep_qualified": 0, "cpql": 705.15, "qual_rate": 50.0, "ctr": 0.9, "tier": "C \u00b7 Cut", "tier_color": "coral", "adsets": [{"name": "Lead | Remarketng | +50% Vid View | Male | 9-5-2026", "spend": 354.82, "leads_meta": 7, "cpl": 50.69, "crm_leads": 2, "qualified": 1, "cpql": 354.82, "qual_rate": 50.0, "ctr": 0.99}, {"name": "Lead | Remarketng | +50% Vid View | Female | 9-5-2026", "spend": 350.33, "leads_meta": 2, "cpl": 175.16, "crm_leads": 0, "qualified": 0, "cpql": 0, "qual_rate": 0, "ctr": 0.8}]}, {"campaign": "Lead Gen | Pixel |  MOF| Abo | US | 6/5/2026", "spend": 641.19, "leads_meta": 41, "cpl": 15.64, "crm_leads": 14, "qualified": 8, "deep_qualified": 0, "cpql": 80.15, "qual_rate": 57.1, "ctr": 1.54, "tier": "A \u00b7 Scale", "tier_color": "mint", "adsets": [{"name": "Lead | 25% Video Viewe | Gelendale | 45-65| Advantage +", "spend": 641.19, "leads_meta": 41, "cpl": 15.64, "crm_leads": 14, "qualified": 8, "cpql": 80.15, "qual_rate": 57.1, "ctr": 1.54}]}, {"campaign": "Lead Gen | Bof | Abo |", "spend": 151.71, "leads_meta": 1, "cpl": 151.71, "crm_leads": 1, "qualified": 0, "deep_qualified": 0, "cpql": 0, "qual_rate": 0.0, "ctr": 1.81, "tier": "\u2014", "tier_color": "gray", "adsets": [{"name": "Retargeting | Video View 3 Sec | Not submited From|", "spend": 151.71, "leads_meta": 1, "cpl": 151.71, "crm_leads": 1, "qualified": 0, "cpql": 0, "qual_rate": 0.0, "ctr": 1.81}]}], "creative_categories": {"counts": {"Video": 22, "Static / Banner": 4, "Other": 3}, "total": 29, "monthly": {"Mar 2026": {"Video": 10, "Other": 3}, "Apr 2026": {"Video": 16, "Other": 3}, "May 2026": {"Video": 21, "Static / Banner": 4, "Other": 3}}, "ads_by_cat": {"Video": [{"AD Name": "AOX $348/month | Ad 3:  Fear & Money?", "spend": 6673.45, "leads": 229}, {"AD Name": "Vid 1 |Missing Teeth | All in 4 | 5/4/2026", "spend": 2880.46, "leads": 147}, {"AD Name": "AOX $348/month | Ad 5 [why is AOX the best option]", "spend": 2456.09, "leads": 82}, {"AD Name": "AOX $348/month | Ad 11: Fear & Money?", "spend": 2414.61, "leads": 66}, {"AD Name": "Retargeting | Ad 3", "spend": 2175.64, "leads": 72}, {"AD Name": "Vid 2 | Still dealing with |All in 4 | 5/4/2026", "spend": 1713.54, "leads": 44}, {"AD Name": "AOX $348/month | Ad 6 [Dr. Nima AOX]", "spend": 1709.96, "leads": 64}, {"AD Name": "AOX $348/month | Ad 12: Fall intro", "spend": 1457.02, "leads": 46}, {"AD Name": "Vid 3 | You\u2019ve looked |All in 4 | 5/4/2026 \u2013 Copy", "spend": 1407.83, "leads": 43}, {"AD Name": "AOX $348/month | Ad 10: Missing Teeth", "spend": 974.12, "leads": 16}, {"AD Name": "Vid 3 | You\u2019ve looked |All in 4 | 5/4/2026 \u2013 C", "spend": 938.01, "leads": 0}, {"AD Name": "AOX $348/month | Ad 7", "spend": 721.86, "leads": 18}, {"AD Name": "Testimonial | B | 5-6-2026", "spend": 536.19, "leads": 40}, {"AD Name": "Retargeting | Ad 2", "spend": 314.15, "leads": 20}, {"AD Name": "C -Vid 1 |Missing Teeth | All in 4 | 5/4/2026", "spend": 208.61, "leads": 0}, {"AD Name": "AOX $348/month | Ad 2: Missing Teeth", "spend": 152.33, "leads": 1}, {"AD Name": "Vid | She hadn\u2019t smiled |13/4/2026", "spend": 151.71, "leads": 1}, {"AD Name": "Testomonial | C | 6-5-2026", "spend": 84.52, "leads": 1}, {"AD Name": "VID | B | Be cautious with | 6-5-2026", "spend": 26.18, "leads": 0}, {"AD Name": "Testimonial| A | 6-5-2026", "spend": 20.48, "leads": 0}, {"AD Name": "VID | A | Be cautious with | 6-5-2026", "spend": 18.02, "leads": 0}, {"AD Name": "VID | quoted $25,000| 6-5-2026", "spend": 9.02, "leads": 0}], "Catalog / Feed": [], "Static / Banner": [{"AD Name": "Banner | A | Before/After | 9-5-2026", "spend": 330.67, "leads": 7}, {"AD Name": "Banner | C | Before/After | 9-5-2026", "spend": 316.27, "leads": 2}, {"AD Name": "Banner | B | Before/After | 9-5-2026", "spend": 41.66, "leads": 0}, {"AD Name": "Banner | D | Before/After | 9-5-2026", "spend": 16.55, "leads": 0}], "Other": [{"AD Name": "Single Implant | Ad 2", "spend": 7711.32, "leads": 213}, {"AD Name": "Single Implant | Ad 1", "spend": 2799.29, "leads": 72}, {"AD Name": "Single Implant | Ad 3", "spend": 683.81, "leads": 9}]}}};
+
+// ============= UTILS =============
+const fmt$ = n => '$' + Math.round(n || 0).toLocaleString('en-US');
+const fmt$$ = n => '$' + (n || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const fmt = n => Math.round(n || 0).toLocaleString('en-US');
+const fmtPct = n => (n || 0).toFixed(1) + '%';
+const fmtPctSm = n => (n || 0).toFixed(2) + '%';
+
+const colors = {
+  text: '#ffffff', textSoft: '#cbd2e0', textMuted: '#7c8499', textDim: '#5a6175',
+  mint: '#2dd4bf', coral: '#fb7185', purple: '#a78bfa', amber: '#fbbf24', blue: '#60a5fa',
+  border: '#232b3d', bgCard: '#131826', bg: '#0a0e1a'
+};
+
+const cpqlClass = (v) => v === 0 ? 'gray' : v < 250 ? 'mint' : v < 600 ? 'amber' : 'coral';
+
+// ============= MINI KPI ROW =============
+function renderKPIRow() {
+  const n = DATA.narrative;
+  const l4 = n.last4w, pr = n.prior;
+  const items = [
+    { label: 'Spend', value: fmt$(l4.spend), prior: `prior: ${fmt$(pr.spend)}`, delta: ((l4.spend - pr.spend) / pr.spend * 100) },
+    { label: 'Meta Leads', value: fmt(l4.leads), prior: `prior: ${fmt(pr.leads)}`, delta: ((l4.leads - pr.leads) / pr.leads * 100) },
+    { label: 'CPL', value: fmt$$(l4.cpl), prior: `prior: ${fmt$$(pr.cpl)}`, delta: ((l4.cpl - pr.cpl) / pr.cpl * 100), invert: true },
+    { label: 'CTR', value: fmtPctSm(l4.ctr), prior: `prior: ${fmtPctSm(pr.ctr)}`, delta: ((l4.ctr - pr.ctr) / pr.ctr * 100) },
+    { label: 'CPM', value: fmt$$(l4.cpm), prior: `prior: ${fmt$$(pr.cpm)}`, delta: ((l4.cpm - pr.cpm) / pr.cpm * 100), invert: true },
+    { label: 'CRM Leads', value: fmt(l4.crm_leads), prior: `prior: ${fmt(pr.crm_leads)}`, delta: ((l4.crm_leads - pr.crm_leads) / pr.crm_leads * 100) },
+  ];
+  document.getElementById('kpiRow').innerHTML = items.map(k => {
+    const isGood = k.invert ? k.delta < 0 : k.delta > 0;
+    const arrow = k.delta > 0 ? '↑' : '↓';
+    const deltaCls = isGood ? 'up' : 'down';
+    return `<div class="kpi-mini">
+      <div class="kpi-mini-label">${k.label}</div>
+      <div class="kpi-mini-value">${k.value}</div>
+      <div class="kpi-mini-delta ${deltaCls}">${arrow} ${Math.abs(k.delta).toFixed(1)}%</div>
+    </div>`;
+  }).join('');
+}
+
+// ============= MONTHLY =============
+function renderMonthly() {
+  const html = DATA.monthly.map(m => {
+    const hasQual = m.qualified > 0;
+    const qualLine = hasQual
+      ? `<div class="stat-sub" style="margin-top:6px">Qual: ${fmt(m.qualified)} · Rate ${fmtPct(m.qual_rate)} · CPQL ${fmt$(m.spend/m.qualified)}</div>`
+      : `<div class="stat-sub" style="margin-top:6px">No CRM coverage</div>`;
+    return `<div class="stat-card">
+      <div class="kpi-mini-label">${m.month} 2026</div>
+      <div class="stat-value" style="font-size:1.75rem; margin-top:0.5rem">${fmt$(m.spend)}</div>
+      <div class="stat-label">${fmt(m.leads)} leads · CPL ${fmt$$(m.cpl)}</div>
+      ${qualLine}
+    </div>`;
+  }).join('');
+  document.getElementById('monthlyCards').innerHTML = html;
+}
+
+// ============= TREND CHART =============
+function renderTrend() {
+  const rows = DATA.weekly;
+  const labels = rows.map(r => r.week_str);
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  new Chart(ctx, {
+    data: {
+      labels,
+      datasets: [
+        { type: 'bar', label: 'Spend', data: rows.map(r => r.spend),
+          backgroundColor: 'rgba(167, 139, 250, 0.4)', borderColor: colors.purple,
+          borderWidth: 1, borderRadius: 4, yAxisID: 'y' },
+        { type: 'line', label: 'CPL', data: rows.map(r => r.cpl),
+          borderColor: colors.amber, backgroundColor: colors.amber,
+          borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.3, yAxisID: 'y1', fill: false },
+        { type: 'line', label: 'CPQL', data: rows.map(r => r.cpql),
+          borderColor: colors.coral, backgroundColor: colors.coral,
+          borderWidth: 2.5, pointRadius: 4, pointHoverRadius: 6, tension: 0.3, yAxisID: 'y', fill: false, spanGaps: false },
+        { type: 'line', label: 'Qual rate %', data: rows.map(r => r.qual_rate),
+          borderColor: colors.mint, borderDash: [5, 4],
+          borderWidth: 2, pointRadius: 2, tension: 0.3, yAxisID: 'y2', fill: false }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', align: 'end', labels: { color: colors.textSoft, font: { size: 11, family: 'Inter' }, padding: 12, boxWidth: 12, boxHeight: 4, usePointStyle: true } },
+        tooltip: { backgroundColor: '#1a2030', titleColor: colors.text, bodyColor: colors.textSoft,
+          padding: 12, cornerRadius: 6, displayColors: true, borderColor: colors.border, borderWidth: 1,
+          titleFont: { family: 'Inter', size: 12, weight: '600' }, bodyFont: { family: 'Inter', size: 11 } }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: colors.textMuted, font: { size: 10, family: 'Inter' } } },
+        y: { position: 'left', grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { color: colors.textMuted, font: { size: 10, family: 'Inter' }, callback: v => '$' + (v >= 1000 ? (v/1000).toFixed(1) + 'k' : v) } },
+        y1: { position: 'right', grid: { display: false },
+          ticks: { color: colors.amber, font: { size: 10, family: 'Inter' }, callback: v => '$' + v.toFixed(0) } },
+        y2: { display: false, min: 0 }
+      }
+    }
+  });
+}
+
+// ============= HIERARCHY =============
+function renderHierarchy() {
+  const html = `<div class="camp-row header-row">
+    <div></div><div>Campaign / Ad Set</div>
+    <div class="num">Spend</div><div class="num">Meta Leads</div><div class="num">CPL</div>
+    <div class="num">CRM</div><div class="num">Qualified</div><div class="num">CPQL</div>
+    <div>Tier</div>
+  </div>` + DATA.campaigns_nested.map((c, idx) => {
+    const cpqlCls = cpqlClass(c.cpql);
+    const adsetsHtml = c.adsets.length > 0 ? `<div class="adset-list">
+      ${c.adsets.map(a => {
+        const aCls = cpqlClass(a.cpql);
+        return `<div class="adset-row">
+          <div></div><div class="name" title="${a.name}">${a.name}</div>
+          <div class="num">${fmt$(a.spend)}</div>
+          <div class="num">${fmt(a.leads_meta)}</div>
+          <div class="num">${a.cpl > 0 ? fmt$$(a.cpl) : '—'}</div>
+          <div class="num">${fmt(a.crm_leads)}</div>
+          <div class="num">${fmt(a.qualified)}</div>
+          <div class="num cpql ${aCls}">${a.cpql > 0 ? fmt$(a.cpql) : '—'}</div>
+          <div></div>
+        </div>`;
+      }).join('')}
+    </div>` : '';
+    return `<div class="camp-row" data-camp="${idx}">
+      <div class="chev">▶</div>
+      <div class="name" title="${c.campaign}">${c.campaign}</div>
+      <div class="num">${fmt$(c.spend)}</div>
+      <div class="num">${fmt(c.leads_meta)}</div>
+      <div class="num">${c.cpl > 0 ? fmt$$(c.cpl) : '—'}</div>
+      <div class="num">${fmt(c.crm_leads)}</div>
+      <div class="num">${fmt(c.qualified)}</div>
+      <div class="num cpql ${cpqlCls}">${c.cpql > 0 ? fmt$(c.cpql) : '—'}</div>
+      <div><span class="tier-pill ${c.tier_color === 'mint' ? 'mint' : c.tier_color === 'warm' ? 'amber' : c.tier_color === 'coral' ? 'coral' : 'gray'}">${c.tier}</span></div>
+    </div>${adsetsHtml}`;
+  }).join('');
+  document.getElementById('hierarchy').innerHTML = html;
+
+  document.querySelectorAll('.camp-row[data-camp]').forEach(row => {
+    row.addEventListener('click', () => row.classList.toggle('open'));
+  });
+  const first = document.querySelector('.camp-row[data-camp]');
+  if (first) first.classList.add('open');
+}
+
+// ============= CREATIVE ASSETS =============
+function renderCreative() {
+  const cats = DATA.creative_categories.counts;
+  const total = DATA.creative_categories.total;
+  document.getElementById('totalAds').textContent = total;
+
+  // Stat cards - 4 categories with icon tiles
+  const catConfig = [
+    { name: 'Video', count: cats['Video'] || 0, color: 'coral', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>' },
+    { name: 'Catalog / Feed', count: cats['Catalog / Feed'] || 0, color: 'mint', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>' },
+    { name: 'Static / Banner', count: cats['Static / Banner'] || 0, color: 'amber', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>' },
+    { name: 'Other', count: cats['Other'] || 0, color: 'purple', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' },
+  ];
+  document.getElementById('creativeStats').innerHTML = catConfig.map(c => {
+    const pct = total ? Math.round(c.count / total * 100) : 0;
+    return `<div class="stat-card">
+      <div class="stat-icon ${c.color}">${c.icon}</div>
+      <div class="stat-value ${c.color}">${c.count}</div>
+      <div class="stat-label">${c.name}</div>
+      <div class="stat-sub">${pct}% of total ads</div>
+    </div>`;
+  }).join('');
+
+  // Donut mix
+  const mixData = catConfig.filter(c => c.count > 0);
+  const ctx1 = document.getElementById('mixChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'doughnut',
+    data: {
+      labels: mixData.map(c => c.name),
+      datasets: [{
+        data: mixData.map(c => c.count),
+        backgroundColor: mixData.map(c => colors[c.color]),
+        borderColor: colors.bgCard, borderWidth: 3,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '68%',
+      plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1a2030', titleColor: colors.text, bodyColor: colors.textSoft, padding: 10, cornerRadius: 6, borderColor: colors.border, borderWidth: 1, callbacks: { label: (item) => `${item.label}: ${item.parsed} (${Math.round(item.parsed/total*100)}%)` } } }
+    }
+  });
+
+  // Legend list
+  document.getElementById('mixLegend').innerHTML = mixData.map(c => {
+    const pct = Math.round(c.count / total * 100);
+    return `<div class="legend-item">
+      <div class="legend-left"><span class="legend-dot" style="background:${colors[c.color]}"></span>${c.name}</div>
+      <div><span class="legend-value">${c.count}</span><span class="legend-pct">(${pct}%)</span></div>
+    </div>`;
+  }).join('');
+
+  // Volume by month - stacked bar
+  const months = ['Mar 2026','Apr 2026','May 2026'];
+  const monthly = DATA.creative_categories.monthly;
+  const ctx2 = document.getElementById('volChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: catConfig.filter(c => c.count > 0).map(c => ({
+        label: c.name,
+        data: months.map(m => (monthly[m] && monthly[m][c.name]) || 0),
+        backgroundColor: colors[c.color],
+        borderRadius: 4,
+        barPercentage: 0.55,
+      }))
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: colors.textSoft, font: { size: 10, family: 'Inter' }, padding: 12, boxWidth: 10, boxHeight: 10, usePointStyle: true, pointStyle: 'rect' } },
+        tooltip: { backgroundColor: '#1a2030', titleColor: colors.text, bodyColor: colors.textSoft, padding: 10, cornerRadius: 6, borderColor: colors.border, borderWidth: 1 }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { color: colors.textMuted, font: { size: 10, family: 'Inter' } } },
+        y: { stacked: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: colors.textMuted, font: { size: 10, family: 'Inter' }, stepSize: 20 } }
+      }
+    }
+  });
+}
+
+// ============= GALLERY =============
+function renderGallery(filter = 'all') {
+  let ads = DATA.ads;
+  if (filter !== 'all') ads = ads.filter(a => a.ad.toLowerCase().includes(filter.toLowerCase()));
+  const html = ads.map(a => {
+    let status = { label: '—', cls: 'gray' };
+    if (a.cpql > 0 && a.cpql < 200) status = { label: '★ Hero', cls: 'mint' };
+    else if (a.cpql > 0 && a.cpql < 400) status = { label: 'Scale', cls: 'amber' };
+    else if (a.spend > 1000 && (a.cpql === 0 || a.cpql > 500)) status = { label: 'Cut / Refresh', cls: 'coral' };
+    else status = { label: 'Watch', cls: 'gray' };
+    const cpqlCls = cpqlClass(a.cpql);
+    return `<div class="creative">
+      <div class="creative-status ${status.cls}">${status.label}</div>
+      <div class="creative-name">${a.ad}</div>
+      <div class="creative-metrics">
+        <div><div class="cm-label">Spend</div><div class="cm-value">${fmt$(a.spend)}</div></div>
+        <div><div class="cm-label">CPQL</div><div class="cm-value ${cpqlCls}">${a.cpql > 0 ? fmt$(a.cpql) : '—'}</div></div>
+      </div>
+      <div class="creative-engagement">
+        <span>CTR <strong>${fmtPctSm(a.ctr)}</strong></span>
+        <span>Hook <strong>${fmtPctSm(a.hook)}</strong></span>
+        <span>Hold <strong>${a.hold.toFixed(1)}%</strong></span>
+        <span>Q <strong>${fmt(a.qualified)}</strong></span>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('gallery').innerHTML = html || '<div style="color:var(--text-muted); padding:2rem; text-align:center">No ads match this filter.</div>';
+}
+
+// ============= FUNNEL =============
+function renderFunnel() {
+  const max = Math.max(...DATA.funnel.map(s => s.count));
+  const total = DATA.funnel.reduce((a, s) => a + s.count, 0);
+  const stageType = {
+    'New / No Comm': 'leak', 'Not Interested': '', 'Out of State': 'leak',
+    'In Conversation': '', 'Appointment Scheduled': 'qualified', 'No Show': '',
+    'Treatment Proposal': 'qualified', 'Started Treatment': 'qualified', 'Closed': 'revenue'
+  };
+  document.getElementById('funnelGrid').innerHTML = DATA.funnel.map(s => {
+    const pct = (s.count / total * 100).toFixed(1);
+    const width = (s.count / max * 100);
+    const cls = stageType[s.stage] || '';
+    return `<div class="funnel-row ${cls}">
+      <div class="funnel-stage-name">${s.stage}</div>
+      <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:${width}%"></div></div>
+      <div class="funnel-count">${fmt(s.count)}</div>
+      <div class="funnel-pct">${pct}%</div>
+    </div>`;
+  }).join('');
+}
+
+// ============= NAV =============
+function setupNav() {
+  const links = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => { if (s.id) observer.observe(s); });
+}
+
+// ============= FILTERS =============
+document.getElementById('adFilters').addEventListener('click', (e) => {
+  if (e.target.classList.contains('chip')) {
+    document.querySelectorAll('#adFilters .chip').forEach(c => { c.classList.remove('active'); c.classList.remove('coral'); });
+    e.target.classList.add('active', 'coral');
+    renderGallery(e.target.dataset.filter);
+  }
+});
+
+// ============= INIT =============
+renderKPIRow();
+renderMonthly();
+renderTrend();
+renderHierarchy();
+renderCreative();
+renderGallery('all');
+renderFunnel();
+setupNav();
+</script>
+</body>
+</html>
